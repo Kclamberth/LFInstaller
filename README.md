@@ -17,7 +17,7 @@ Current list:
 
 7.Discord
 
-This simple script is used to get new installs of linux up to speed with my other. It automatically installs these applications, either via the package manager
+This simple script is used to get new installs of linux up to my standards ASAP. It automatically installs these applications, either via the package manager
 or by directly pulling from the website and auto installing it from there. 
 
 This script also tells you whether the application successfully installed or not, and cleans up the trash files left behind from the install.
