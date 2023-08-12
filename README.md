@@ -7,7 +7,7 @@ Current list:
 
 2.TLDR
 
-3.Sensors
+3.Lynis
 
 4.NMap
 
