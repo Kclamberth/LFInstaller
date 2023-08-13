@@ -29,4 +29,3 @@ This script also tells you whether the application successfully installed or not
 A log file is created and contains info from the installation process of each application. Useful for debugging purposes.
 
 Finally, this script changes some settings that I prefer, such as RFkilling wifi and bluetooth, and shutting down their respective interfaces.
-It also ensures the firewall is turned on in case I forget. 
