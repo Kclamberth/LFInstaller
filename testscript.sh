@@ -10,6 +10,7 @@ app6=steam
 app7=discord
 app8=fail2ban
 app9=vim
+app10=flatpak
 
 #Welcome message
 echo "Welcome to KCL App installer!"
@@ -35,6 +36,8 @@ sudo apt-get install -y $app8 >> kcl_pack_installer.log
 e8=$?
 sudo apt-get install -y $app9 >> kcl_pack_installer.log
 e9=$?
+sudo apt-get install -y $app10 >> kcl_pack_installer.log
+e10=$?
 
 wget -q "https://discord.com/api/download?platform=linux&format=deb" >> kcl_pack_installer.log
 sudo chmod +x 'download?platform=linux&format=deb' >> kcl_pack_installer.log
@@ -103,6 +106,13 @@ then
     echo "$app9 successfully installed."
 else
     echo "$app9 FAILED to install."
+fi
+
+if [ $e10 -eq 0 ]
+then
+    echo "$app10 successfully installed."
+else
+    echo "$app10 FAILED to install."
 fi
 
 echo " "
