@@ -47,6 +47,15 @@ sudo chmod +x 'download?platform=linux&format=deb' >> kcl_pack_installer.log
 sudo dpkg -i ~/'download?platform=linux&format=deb' >> kcl_pack_installer.log
 e7=$?
 
+#flatpak applications
+if [ $e10 -eq 0 ]
+then
+    flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo >> kcl_pack_installer.log
+    sleep 3
+    flatpak install -y flathub com.ultimaker.cura >> kcl_pack_installer.log
+    ea=$?
+fi
+
 #exit codes & messages
 if [ $e1 -eq 0 ]
 then
@@ -123,6 +132,13 @@ then
     echo "$app11 successfully installed."
 else
     echo "$app11 FAILED to install."
+fi
+
+if [ $ea -eq 0 ]
+then
+    echo "Ultimaker Cura successfully installed."
+else
+    echo "Ultimaker Cura FAILED to install."
 fi
 
 echo " "
