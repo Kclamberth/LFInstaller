@@ -20,34 +20,34 @@ sudo apt-get update >> kcl_pack_installer.log
 
 #App install
 echo "Installing applications... (1/12)"
-sudo apt-get install -y -q $app1 >> kcl_pack_installer.log
+sudo apt-get install -y -q $app1 >> kcl_pack_installer.log 2>&1 #appends stderror AND stdout to log
 e1=$?
 echo "Installing applications... (2/12)"
-sudo apt-get install -y -q $app2 >> kcl_pack_installer.log
+sudo apt-get install -y -q $app2 >> kcl_pack_installer.log 2>&1
 e2=$?
 echo "Installing applications... (3/12)"
-sudo apt-get install -y -q $app3 >> kcl_pack_installer.log
+sudo apt-get install -y -q $app3 >> kcl_pack_installer.log 2>&1
 e3=$?
 echo "Installing applications... (4/12)"
-sudo apt-get install -y -q $app4 >> kcl_pack_installer.log
+sudo apt-get install -y -q $app4 >> kcl_pack_installer.log 2>&1
 e4=$?
 echo "Installing applications... (5/12)"
-sudo apt-get install -y -q $app5 >> kcl_pack_installer.log
+sudo apt-get install -y -q $app5 >> kcl_pack_installer.log 2>&1
 e5=$?
 echo "Installing applications... (6/12)"
-sudo apt-get install -y -q $app6 >> kcl_pack_installer.log
+sudo apt-get install -y -q $app6 >> kcl_pack_installer.log 2>&1
 e6=$?
 echo "Installing applications... (7/12)"
-sudo apt-get install -y -q $app8 >> kcl_pack_installer.log
+sudo apt-get install -y -q $app8 >> kcl_pack_installer.log 2>&1
 e8=$?
 echo "Installing applications... (8/12)"
-sudo apt-get install -y -q $app9 >> kcl_pack_installer.log
+sudo apt-get install -y -q $app9 >> kcl_pack_installer.log 2>&1
 e9=$?
 echo "Installing applications... (9/12)"
-sudo apt-get install -y -q $app10 >> kcl_pack_installer.log
+sudo apt-get install -y -q $app10 >> kcl_pack_installer.log 2>&1
 e10=$?
 echo "Installing applications... (10/12)"
-sudo apt-get install -y -q $app11 >> kcl_pack_installer.log
+sudo apt-get install -y -q $app11 >> kcl_pack_installer.log 2>&1
 e11=$?
 
 
@@ -56,7 +56,7 @@ echo "Installing applications... (11/12)"
 wget -q "https://discord.com/api/download?platform=linux&format=deb" >> kcl_pack_installer.log
 sudo chmod +x 'download?platform=linux&format=deb' >> kcl_pack_installer.log
 sudo dpkg -i ~/'download?platform=linux&format=deb' >> kcl_pack_installer.log
-echo "Fixing dependencies..."
+echo "Fixing dependencies... (11/12)"
 sudo apt-get install -f -y >> kcl_pack_installer.log #fix dependencies 
 e7=$?
 
