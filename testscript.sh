@@ -42,13 +42,14 @@ e10=$?
 sudo apt-get install -y $app11 >> kcl_pack_installer.log
 e11=$?
 
+#pull from discord site
 wget -q "https://discord.com/api/download?platform=linux&format=deb" >> kcl_pack_installer.log
 sudo chmod +x 'download?platform=linux&format=deb' >> kcl_pack_installer.log
 sudo dpkg -i ~/'download?platform=linux&format=deb' >> kcl_pack_installer.log
 e7=$?
 
 #flatpak applications
-if [ $e10 -eq 0 ]
+if [ $e10 -eq 0 ] #only execute if flatpak successfully installs
 then
     flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo >> kcl_pack_installer.log
     sleep 3
