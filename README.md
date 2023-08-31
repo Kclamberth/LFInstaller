@@ -3,7 +3,7 @@ Useful apps for myself that are auto installed in a bash script. Will be updated
 
 Current list:
 
-1.Discord
+ 1.Discord
 
 2.TLDR
 
