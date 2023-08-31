@@ -56,6 +56,7 @@ echo "Installing applications... (11/12)"
 wget -q "https://discord.com/api/download?platform=linux&format=deb" >> kcl_pack_installer.log
 sudo chmod +x 'download?platform=linux&format=deb' >> kcl_pack_installer.log
 sudo dpkg -i ~/'download?platform=linux&format=deb' >> kcl_pack_installer.log
+echo "Fixing dependencies..."
 sudo apt-get install -f -y >> kcl_pack_installer.log #fix dependencies 
 e7=$?
 
