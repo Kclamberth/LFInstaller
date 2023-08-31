@@ -21,7 +21,7 @@ Current list:
 
 9.Vim
 
-10. Flatpak
+10.Flatpak
     
     a. Cura
 
