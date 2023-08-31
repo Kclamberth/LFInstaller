@@ -16,7 +16,7 @@ app11=iftop
 #Welcome message
 echo "Welcome to KCL App installer!"
 echo " "
-sudo apt-get update >> kcl_pack_installer.log
+sudo apt-get update >> kcl_pack_installer.log 2>&1
 
 #App install
 echo "Installing applications... (1/12)"
@@ -53,24 +53,24 @@ e11=$?
 
 #pull from discord site
 echo "Installing applications... (11/12)"
-wget -q "https://discord.com/api/download?platform=linux&format=deb" >> kcl_pack_installer.log
-sudo chmod +x 'download?platform=linux&format=deb' >> kcl_pack_installer.log
-sudo dpkg -i ~/'download?platform=linux&format=deb' >> kcl_pack_installer.log
+wget -q "https://discord.com/api/download?platform=linux&format=deb" >> kcl_pack_installer.log 2>&1
+sudo chmod +x 'download?platform=linux&format=deb' >> kcl_pack_installer.log 2>&1
+sudo dpkg -i ~/'download?platform=linux&format=deb' >> kcl_pack_installer.log 2>&1
 echo "Fixing dependencies... (11/12)"
-sudo apt-get install -f -y >> kcl_pack_installer.log #fix dependencies 
+sudo apt-get install -f -y >> kcl_pack_installer.log  2>&1 #fix dependencies 
 e7=$?
 
 #flatpak applications
 if [ $e10 -eq 0 ] #only execute if flatpak successfully installs
 then
     echo "Installing applications... (12/12)"
-    sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo >> kcl_pack_installer.log
+    sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo >> kcl_pack_installer.log 2>&1
     sleep 3
-    sudo flatpak install -y flathub com.ultimaker.cura >> kcl_pack_installer.log
+    sudo flatpak install -y flathub com.ultimaker.cura >> kcl_pack_installer.log 2>&1
     ea=$?
     if [ $e6 -ne 0 ] #install steam via flatpak if not available in package manager
         then
-        sudo flatpak install -y flathub com.valvesoftware.Steam >> kcl_pack_installer.log
+        sudo flatpak install -y flathub com.valvesoftware.Steam >> kcl_pack_installer.log 2>&1
         eb=$?
     fi
     echo "Installing applications... (DONE)"
