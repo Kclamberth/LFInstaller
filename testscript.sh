@@ -21,53 +21,55 @@ sudo apt-get update >> kcl_pack_installer.log
 #App install
 echo "Installing applications... "
 
+echo "Installing applications... (1/12)"
 sudo apt-get install -y $app1 >> kcl_pack_installer.log
 e1=$?
-echo "Installing applications... (1/12)"
+echo "Installing applications... (2/12)"
 sudo apt-get install -y $app2 >> kcl_pack_installer.log
 e2=$?
-echo "Installing applications... (2/12)"
+echo "Installing applications... (3/12)"
 sudo apt-get install -y $app3 >> kcl_pack_installer.log
 e3=$?
-echo "Installing applications... (3/12)"
+echo "Installing applications... (4/12)"
 sudo apt-get install -y $app4 >> kcl_pack_installer.log
 e4=$?
-echo "Installing applications... (4/12)"
+echo "Installing applications... (5/12)"
 sudo apt-get install -y $app5 >> kcl_pack_installer.log
 e5=$?
-echo "Installing applications... (5/12)"
+echo "Installing applications... (6/12)"
 sudo apt-get install -y $app6 >> kcl_pack_installer.log
 e6=$?
-echo "Installing applications... (6/12)"
+echo "Installing applications... (7/12)"
 sudo apt-get install -y $app8 >> kcl_pack_installer.log
 e8=$?
-echo "Installing applications... (7/12)"
+echo "Installing applications... (8/12)"
 sudo apt-get install -y $app9 >> kcl_pack_installer.log
 e9=$?
-echo "Installing applications... (8/12)"
+echo "Installing applications... (9/12)"
 sudo apt-get install -y $app10 >> kcl_pack_installer.log
 e10=$?
-echo "Installing applications... (9/12)"
+echo "Installing applications... (10/12)"
 sudo apt-get install -y $app11 >> kcl_pack_installer.log
 e11=$?
-echo "Installing applications... (10/12)"
+
 
 #pull from discord site
+echo "Installing applications... (11/12)"
 wget -q "https://discord.com/api/download?platform=linux&format=deb" >> kcl_pack_installer.log
 sudo chmod +x 'download?platform=linux&format=deb' >> kcl_pack_installer.log
 sudo dpkg -i ~/'download?platform=linux&format=deb' >> kcl_pack_installer.log
 sudo apt-get install -f -y >> kcl_pack_installer.log #fix dependencies 
 e7=$?
-echo "Installing applications... (11/12)"
 
 #flatpak applications
 if [ $e10 -eq 0 ] #only execute if flatpak successfully installs
 then
+    echo "Installing applications... (12/12)"
     sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo >> kcl_pack_installer.log
     sleep 3
     sudo flatpak install -y flathub com.ultimaker.cura >> kcl_pack_installer.log
     ea=$?
-    echo "Installing applications... (12/12)"
+    echo "Installing applications... (DONE)"
 fi
 
 #exit codes & messages
