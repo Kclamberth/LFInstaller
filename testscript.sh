@@ -20,34 +20,34 @@ sudo apt-get update >> kcl_pack_installer.log
 
 #App install
 echo "Installing applications... (1/12)"
-sudo apt-get install -y $app1 >> kcl_pack_installer.log
+sudo apt-get install -y -q $app1 >> kcl_pack_installer.log
 e1=$?
 echo "Installing applications... (2/12)"
-sudo apt-get install -y $app2 >> kcl_pack_installer.log
+sudo apt-get install -y -q $app2 >> kcl_pack_installer.log
 e2=$?
 echo "Installing applications... (3/12)"
-sudo apt-get install -y $app3 >> kcl_pack_installer.log
+sudo apt-get install -y -q $app3 >> kcl_pack_installer.log
 e3=$?
 echo "Installing applications... (4/12)"
-sudo apt-get install -y $app4 >> kcl_pack_installer.log
+sudo apt-get install -y -q $app4 >> kcl_pack_installer.log
 e4=$?
 echo "Installing applications... (5/12)"
-sudo apt-get install -y $app5 >> kcl_pack_installer.log
+sudo apt-get install -y -q $app5 >> kcl_pack_installer.log
 e5=$?
 echo "Installing applications... (6/12)"
-sudo apt-get install -y $app6 >> kcl_pack_installer.log
+sudo apt-get install -y -q $app6 >> kcl_pack_installer.log
 e6=$?
 echo "Installing applications... (7/12)"
-sudo apt-get install -y $app8 >> kcl_pack_installer.log
+sudo apt-get install -y -q $app8 >> kcl_pack_installer.log
 e8=$?
 echo "Installing applications... (8/12)"
-sudo apt-get install -y $app9 >> kcl_pack_installer.log
+sudo apt-get install -y -q $app9 >> kcl_pack_installer.log
 e9=$?
 echo "Installing applications... (9/12)"
-sudo apt-get install -y $app10 >> kcl_pack_installer.log
+sudo apt-get install -y -q $app10 >> kcl_pack_installer.log
 e10=$?
 echo "Installing applications... (10/12)"
-sudo apt-get install -y $app11 >> kcl_pack_installer.log
+sudo apt-get install -y -q $app11 >> kcl_pack_installer.log
 e11=$?
 
 
