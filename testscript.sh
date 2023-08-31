@@ -19,8 +19,6 @@ echo " "
 sudo apt-get update >> kcl_pack_installer.log
 
 #App install
-echo "Installing applications... "
-
 echo "Installing applications... (1/12)"
 sudo apt-get install -y $app1 >> kcl_pack_installer.log
 e1=$?
