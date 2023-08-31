@@ -67,8 +67,15 @@ then
     sleep 3
     sudo flatpak install -y flathub com.ultimaker.cura >> kcl_pack_installer.log
     ea=$?
+    if [ $e6 -ne 0 ] #install steam via flatpak if not available in package manager
+        then
+        sudo flatpak install -y flathub com.valvesoftware.Steam >> kcl_pack_installer.log
+        eb=$?
+    fi
     echo "Installing applications... (DONE)"
+    echo " "
 fi
+
 
 #exit codes & messages
 if [ $e1 -eq 0 ]
@@ -106,7 +113,7 @@ else
     echo "$app5 FAILED to install."
 fi
 
-if [ $e6 -eq 0 ]
+if [ $e6 -eq 0 ] || [ $eb -eq 0 ] #steam via apt or flatpak
 then
     echo "$app6 successfully installed."
 else
