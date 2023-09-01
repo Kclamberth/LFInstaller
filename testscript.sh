@@ -56,8 +56,6 @@ echo "Installing applications... (11/12)"
 wget -q "https://discord.com/api/download?platform=linux&format=deb" >> kcl_pack_installer.log 2>&1
 sudo chmod +x 'download?platform=linux&format=deb' >> kcl_pack_installer.log 2>&1
 sudo dpkg -i ~/'download?platform=linux&format=deb' >> kcl_pack_installer.log 2>&1
-echo "Fixing dependencies... (11/12)"
-sudo apt-get install -f -y >> kcl_pack_installer.log  2>&1 #fix dependencies 
 e7=$?
 
 #flatpak applications
@@ -65,7 +63,6 @@ if [ $e10 -eq 0 ] #only execute if flatpak successfully installs
 then
     echo "Installing applications... (12/12)"
     sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo >> kcl_pack_installer.log 2>&1
-    sleep 3
     sudo flatpak install -y flathub com.ultimaker.cura >> kcl_pack_installer.log 2>&1
     ea=$?
     if [ $e6 -ne 0 ] #install steam via flatpak if not available in package manager
@@ -74,8 +71,16 @@ then
         eb=$?
     fi
     echo "Installing applications... (DONE)"
+    sleep 3
     echo " "
 fi
+
+#fix dependencies 
+echo "Fixing dependencies..."
+sudo apt-get install -f -y >> kcl_pack_installer.log  2>&1 
+echo "Fixing dependencies... (DONE)"
+sleep 3
+echo " "
 
 
 #exit codes & messages
@@ -163,21 +168,17 @@ else
     echo "Ultimaker Cura FAILED to install."
 fi
 
-echo " "
 sleep 3
+echo " "
 
 #Trash cleanup
 echo "Removing trash files..."
 currentdirectory=$(pwd)
 rm $currentdirectory/'download?platform=linux&format=deb'
+echo "Removing trash files... (DONE)"
 
+Sleep 3
 echo " "
-sleep 3
 
-#Wireless signal cleanups
-echo "RFKill blocking wifi & bluetooth, turning wifi interface off."
-rfkill block wifi
-rfkill block bluetooth
-sudo ifconfig wlo1 down
+echo "Finished installing applications."
 
-echo "Finished installing applications and changing wireless signals."
