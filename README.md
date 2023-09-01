@@ -3,7 +3,7 @@ Useful apps for myself that are auto installed in a bash script. Will be updated
 
 Current list:
 
- 1.Discord
+ 1.Htop
 
 2.TLDR
 
@@ -23,11 +23,11 @@ Current list:
 
 10.Flatpak
     
-    a. Cura
+    a. Ultimaker Cura
 
     b. Steam (IF not available in primary package manager)
 
-11. iftop
+11. Iftop
 
 This simple script is used to get new installs of linux up to my standards ASAP. It automatically installs these applications, either via the package manager
 or by directly pulling from the website and auto installing it from there. 
