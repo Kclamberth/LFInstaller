@@ -56,7 +56,6 @@ echo "Installing applications... (11/12)"
 wget -q "https://discord.com/api/download?platform=linux&format=deb" >> kcl_pack_installer.log 2>&1
 sudo chmod +x 'download?platform=linux&format=deb' >> kcl_pack_installer.log 2>&1
 sudo dpkg -i ~/'download?platform=linux&format=deb' >> kcl_pack_installer.log 2>&1
-e7=$?
 
 #flatpak applications
 if [ $e10 -eq 0 ] #only execute if flatpak successfully installs
@@ -78,6 +77,7 @@ fi
 #fix dependencies 
 echo "Fixing dependencies..."
 sudo apt-get install -f -y >> kcl_pack_installer.log  2>&1 
+e7=$? #required for discord to be successful
 echo "Fixing dependencies... (DONE)"
 sleep 3
 echo " "
