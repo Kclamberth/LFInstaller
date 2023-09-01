@@ -177,7 +177,7 @@ currentdirectory=$(pwd)
 rm $currentdirectory/'download?platform=linux&format=deb'
 echo "Removing trash files... (DONE)"
 
-Sleep 3
+sleep 3
 echo " "
 
 echo "Finished installing applications."
