@@ -27,9 +27,9 @@ Current list:
 
     b. Steam (IF not available in primary package manager)
 
-11. Iftop
+    c. Lutris
 
-12. Lutris
+11. Iftop
 
 This simple script is used to get new installs of linux up to my standards ASAP. It automatically installs these applications, either via the package manager
 or by directly pulling from the website and auto installing it from there. 
