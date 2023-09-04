@@ -75,7 +75,7 @@ then
         eb=$?
     fi
     
-    echo "Installing applications... (14/14)
+    echo "Installing applications... (14/14)"
     sudo flatpak install -y flathub net.lutris.Lutris >> kcl_pack_installer.log 2>&1
     ec=$?
     
