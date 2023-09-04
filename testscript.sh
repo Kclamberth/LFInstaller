@@ -12,6 +12,7 @@ app8=fail2ban
 app9=vim
 app10=flatpak
 app11=iftop
+app12=lutris
 
 #Welcome message
 echo "Welcome to KCL App installer!"
@@ -19,40 +20,43 @@ echo " "
 sudo apt-get update >> kcl_pack_installer.log 2>&1
 
 #App install
-echo "Installing applications... (1/12)"
+echo "Installing applications... (1/13)"
 sudo apt-get install -y -q $app1 >> kcl_pack_installer.log 2>&1 #appends stderror AND stdout to log
 e1=$?
-echo "Installing applications... (2/12)"
+echo "Installing applications... (2/13)"
 sudo apt-get install -y -q $app2 >> kcl_pack_installer.log 2>&1
 e2=$?
-echo "Installing applications... (3/12)"
+echo "Installing applications... (3/13)"
 sudo apt-get install -y -q $app3 >> kcl_pack_installer.log 2>&1
 e3=$?
-echo "Installing applications... (4/12)"
+echo "Installing applications... (4/13)"
 sudo apt-get install -y -q $app4 >> kcl_pack_installer.log 2>&1
 e4=$?
-echo "Installing applications... (5/12)"
+echo "Installing applications... (5/13)"
 sudo apt-get install -y -q $app5 >> kcl_pack_installer.log 2>&1
 e5=$?
-echo "Installing applications... (6/12)"
+echo "Installing applications... (6/13)"
 sudo apt-get install -y -q $app6 >> kcl_pack_installer.log 2>&1
 e6=$?
-echo "Installing applications... (7/12)"
+echo "Installing applications... (7/13)"
 sudo apt-get install -y -q $app8 >> kcl_pack_installer.log 2>&1
 e8=$?
-echo "Installing applications... (8/12)"
+echo "Installing applications... (8/13)"
 sudo apt-get install -y -q $app9 >> kcl_pack_installer.log 2>&1
 e9=$?
-echo "Installing applications... (9/12)"
+echo "Installing applications... (9/13)"
 sudo apt-get install -y -q $app10 >> kcl_pack_installer.log 2>&1
 e10=$?
-echo "Installing applications... (10/12)"
+echo "Installing applications... (10/13)"
 sudo apt-get install -y -q $app11 >> kcl_pack_installer.log 2>&1
 e11=$?
+echo "Installing applications... (11/13)"
+sudo apt-get install -y -q $app12 >> kcl_pack_installer.log 2>&1
+e12=$?
 
 
 #pull from discord site
-echo "Installing applications... (11/12)"
+echo "Installing applications... (12/13)"
 wget -q "https://discord.com/api/download?platform=linux&format=deb" >> kcl_pack_installer.log 2>&1
 sudo chmod +x 'download?platform=linux&format=deb' >> kcl_pack_installer.log 2>&1
 sudo dpkg -i ~/'download?platform=linux&format=deb' >> kcl_pack_installer.log 2>&1
@@ -60,7 +64,7 @@ sudo dpkg -i ~/'download?platform=linux&format=deb' >> kcl_pack_installer.log 2>
 #flatpak applications
 if [ $e10 -eq 0 ] #only execute if flatpak successfully installs
 then
-    echo "Installing applications... (12/12)"
+    echo "Installing applications... (13/13)"
     sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo >> kcl_pack_installer.log 2>&1
     sudo flatpak install -y flathub com.ultimaker.cura >> kcl_pack_installer.log 2>&1
     ea=$?
@@ -159,6 +163,13 @@ then
     echo "$app11 successfully installed."
 else
     echo "$app11 FAILED to install."
+fi
+
+if [ $e12 -eq 0 ]
+then
+    echo "$app12 successfully installed."
+else
+    echo "$app12 FAILED to install."
 fi
 
 if [ $ea -eq 0 ]
