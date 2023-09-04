@@ -21,7 +21,7 @@ Current list:
 
 9.Vim
 
-10. Iftop
+10.Iftop
 
 11.Flatpak
     
