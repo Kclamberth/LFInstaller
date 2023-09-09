@@ -71,9 +71,6 @@ then
     sudo flatpak install -y flathub net.lutris.Lutris >> kcl_pack_installer.log 2>&1
     ec=$?
     
-    echo "Installing applications... (DONE)"
-    sleep 3
-    echo " "
 fi
 
 #pull from discord site
@@ -82,6 +79,10 @@ wget -q "https://discord.com/api/download?platform=linux&format=deb" >> kcl_pack
 sudo chmod +x 'download?platform=linux&format=deb' >> kcl_pack_installer.log 2>&1
 sudo dpkg -i ~/'download?platform=linux&format=deb' >> kcl_pack_installer.log 2>&1
 #e7 exit code moved to line 85
+
+echo "Installing applications... (DONE)"
+sleep 3
+echo " "
 
 #fix dependencies 
 echo "Fixing dependencies..."
