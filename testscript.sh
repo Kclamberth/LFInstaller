@@ -45,6 +45,7 @@ wget -q "https://discord.com/api/download?platform=linux&format=deb" >> kcl_pack
 sudo chmod +x 'download?platform=linux&format=deb' >> kcl_pack_installer.log 2>&1
 sudo dpkg -i ~/'download?platform=linux&format=deb' >> kcl_pack_installer.log 2>&1
 #e7 exit code moved to line 85
+sleep 5
 
 echo "Installing applications... (8/14)"
 sudo apt-get install -y -q $app8 >> kcl_pack_installer.log 2>&1
