@@ -158,9 +158,23 @@ else
     echo "$app9 FAILED to install."
 fi
 
-if [ $e10 -eq 0 ]
+if [ $e10 -eq 0 ] #flatpak application checks
 then
     echo "$app10 successfully installed."
+    
+    if [ $ea -eq 0 ]
+    then
+        echo "Ultimaker Cura successfully installed."
+    else
+        echo "Ultimaker Cura FAILED to install."
+    fi
+
+    if [ $ec -eq 0 ]
+    then
+        echo "$app12 successfully installed."
+    else
+        echo "$app12 FAILED to install."
+    fi
 else
     echo "$app10 FAILED to install."
 fi
@@ -172,19 +186,6 @@ else
     echo "$app11 FAILED to install."
 fi
 
-if [ $ea -eq 0 ]
-then
-    echo "Ultimaker Cura successfully installed."
-else
-    echo "Ultimaker Cura FAILED to install."
-fi
-
-if [ $ec -eq 0 ]
-then
-    echo "$app12 successfully installed."
-else
-    echo "$app12 FAILED to install."
-fi
 
 sleep 3
 echo " "
