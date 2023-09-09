@@ -38,35 +38,26 @@ e5=$?
 echo "Installing applications... (6/14)"
 sudo apt-get install -y -q $app6 >> kcl_pack_installer.log 2>&1
 e6=$?
-
-#pull from discord site
 echo "Installing applications... (7/14)"
-wget -q "https://discord.com/api/download?platform=linux&format=deb" >> kcl_pack_installer.log 2>&1
-sudo chmod +x 'download?platform=linux&format=deb' >> kcl_pack_installer.log 2>&1
-sudo dpkg -i ~/'download?platform=linux&format=deb' >> kcl_pack_installer.log 2>&1
-#e7 exit code moved to line 85
-sleep 5
-
-echo "Installing applications... (8/14)"
 sudo apt-get install -y -q $app8 >> kcl_pack_installer.log 2>&1
 e8=$?
-echo "Installing applications... (9/14)"
+echo "Installing applications... (8/14)"
 sudo apt-get install -y -q $app9 >> kcl_pack_installer.log 2>&1
 e9=$?
-echo "Installing applications... (10/14)"
+echo "Installing applications... (9/14)"
 sudo apt-get install -y -q $app10 >> kcl_pack_installer.log 2>&1
 e10=$?
-echo "Installing applications... (11/14)"
+echo "Installing applications... (10/14)"
 sudo apt-get install -y -q $app11 >> kcl_pack_installer.log 2>&1
 e11=$?
 
 #flatpak applications
 if [ $e10 -eq 0 ] #only execute if flatpak successfully installs
 then
-    echo "Installing applications... (12/14)"
+    echo "Installing applications... (11/14)"
     sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo >> kcl_pack_installer.log 2>&1
     
-    echo "Installing applications... (13/14)"
+    echo "Installing applications... (12/14)"
     sudo flatpak install -y flathub com.ultimaker.cura >> kcl_pack_installer.log 2>&1
     ea=$?
     
@@ -76,7 +67,7 @@ then
         eb=$?
     fi
     
-    echo "Installing applications... (14/14)"
+    echo "Installing applications... (13/14)"
     sudo flatpak install -y flathub net.lutris.Lutris >> kcl_pack_installer.log 2>&1
     ec=$?
     
@@ -85,6 +76,13 @@ then
     echo " "
 fi
 
+#pull from discord site
+echo "Installing applications... (14/14)"
+wget -q "https://discord.com/api/download?platform=linux&format=deb" >> kcl_pack_installer.log 2>&1
+sudo chmod +x 'download?platform=linux&format=deb' >> kcl_pack_installer.log 2>&1
+sudo dpkg -i ~/'download?platform=linux&format=deb' >> kcl_pack_installer.log 2>&1
+#e7 exit code moved to line 85
+
 #fix dependencies 
 echo "Fixing dependencies..."
 sudo apt-get install -f -y >> kcl_pack_installer.log  2>&1 
@@ -92,7 +90,6 @@ e7=$? #required for discord to be successful
 echo "Fixing dependencies... (DONE)"
 sleep 3
 echo " "
-
 
 #exit codes & messages
 if [ $e1 -eq 0 ]
