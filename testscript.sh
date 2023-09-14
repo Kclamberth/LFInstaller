@@ -20,44 +20,44 @@ echo " "
 sudo apt-get update >> kcl_pack_installer.log 2>&1
 
 #App install
-echo "Installing applications... (1/14)"
+echo "Installing applications... (1/15)"
 sudo apt-get install -y -q $app1 >> kcl_pack_installer.log 2>&1 #appends stderror AND stdout to log
 e1=$?
-echo "Installing applications... (2/14)"
+echo "Installing applications... (2/15)"
 sudo apt-get install -y -q $app2 >> kcl_pack_installer.log 2>&1
 e2=$?
-echo "Installing applications... (3/14)"
+echo "Installing applications... (3/15)"
 sudo apt-get install -y -q $app3 >> kcl_pack_installer.log 2>&1
 e3=$?
-echo "Installing applications... (4/14)"
+echo "Installing applications... (4/15)"
 sudo apt-get install -y -q $app4 >> kcl_pack_installer.log 2>&1
 e4=$?
-echo "Installing applications... (5/14)"
+echo "Installing applications... (5/15)"
 sudo apt-get install -y -q $app5 >> kcl_pack_installer.log 2>&1
 e5=$?
-echo "Installing applications... (6/14)"
+echo "Installing applications... (6/15)"
 sudo apt-get install -y -q $app6 >> kcl_pack_installer.log 2>&1
 e6=$?
-echo "Installing applications... (7/14)"
+echo "Installing applications... (7/15)"
 sudo apt-get install -y -q $app8 >> kcl_pack_installer.log 2>&1
 e8=$?
-echo "Installing applications... (8/14)"
+echo "Installing applications... (8/15)"
 sudo apt-get install -y -q $app9 >> kcl_pack_installer.log 2>&1
 e9=$?
-echo "Installing applications... (9/14)"
+echo "Installing applications... (9/15)"
 sudo apt-get install -y -q $app10 >> kcl_pack_installer.log 2>&1
 e10=$?
-echo "Installing applications... (10/14)"
+echo "Installing applications... (10/15)"
 sudo apt-get install -y -q $app11 >> kcl_pack_installer.log 2>&1
 e11=$?
 
 #flatpak applications
 if [ $e10 -eq 0 ] #only execute if flatpak successfully installs
 then
-    echo "Installing applications... (11/14)"
+    echo "Installing applications... (11/15)"
     sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo >> kcl_pack_installer.log 2>&1
     
-    echo "Installing applications... (12/14)"
+    echo "Installing applications... (12/15)"
     sudo flatpak install -y flathub com.ultimaker.cura >> kcl_pack_installer.log 2>&1
     ea=$?
     
@@ -67,18 +67,24 @@ then
         eb=$?
     fi
     
-    echo "Installing applications... (13/14)"
+    echo "Installing applications... (13/15)"
     sudo flatpak install -y flathub net.lutris.Lutris >> kcl_pack_installer.log 2>&1
     ec=$?
     
 fi
 
 #pull from discord site
-echo "Installing applications... (14/14)"
+echo "Installing applications... (14/15)"
 wget -q "https://discord.com/api/download?platform=linux&format=deb" >> kcl_pack_installer.log 2>&1
 sudo chmod +x 'download?platform=linux&format=deb' >> kcl_pack_installer.log 2>&1
 sudo dpkg -i ~/'download?platform=linux&format=deb' >> kcl_pack_installer.log 2>&1
 #e7 exit code moved to line 85
+
+echo "Installing applications... (15/15)"
+sudo curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/bin/yt-dlp >> kcl_pack_installer.log 2>&1
+e12=$?
+sudo chmod a+rx /usr/bin/yt-dlp >> kcl_pack_installer.log 2>&1
+sudo yt-dlp -U >> kcl_pack_installer.log 2>&1
 
 echo "Installing applications... (DONE)"
 sleep 3
