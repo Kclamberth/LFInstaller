@@ -81,6 +81,7 @@ sudo chmod +x 'download?platform=linux&format=deb' >> kcl_pack_installer.log 2>&
 sudo dpkg -i ~/'download?platform=linux&format=deb' >> kcl_pack_installer.log 2>&1
 #e7 exit code moved to line 85
 
+#pull from yt-dlp github page
 echo "Installing applications... (15/15)"
 sudo curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/bin/yt-dlp >> kcl_pack_installer.log 2>&1
 e13=$?
