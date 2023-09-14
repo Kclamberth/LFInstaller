@@ -13,6 +13,7 @@ app9=vim
 app10=flatpak
 app11=iftop
 app12=lutris
+app13=yt-dlp
 
 #Welcome message
 echo "Welcome to KCL App installer!"
@@ -82,7 +83,7 @@ sudo dpkg -i ~/'download?platform=linux&format=deb' >> kcl_pack_installer.log 2>
 
 echo "Installing applications... (15/15)"
 sudo curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/bin/yt-dlp >> kcl_pack_installer.log 2>&1
-e12=$?
+e13=$?
 sudo chmod a+rx /usr/bin/yt-dlp >> kcl_pack_installer.log 2>&1
 sudo yt-dlp -U >> kcl_pack_installer.log 2>&1
 
@@ -190,6 +191,12 @@ else
     echo "$app11 FAILED to install."
 fi
 
+if [ $e12 -eq 0 ]
+then
+    echo "$app13 successfully installed."
+else
+    echo "$app13 FAILED to install."
+fi
 
 sleep 3
 echo " "
