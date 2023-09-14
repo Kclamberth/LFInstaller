@@ -17,7 +17,7 @@ Current list:
 
 7.Discord
 
-8.Fail2ban
+8.Macchanger
 
 9.Vim
 
