@@ -1,15 +1,17 @@
 #!/bin/bash
 
+cd $(find / -name testscript.sh 2>/dev/null | xargs dirname 2>/dev/null)
+
 #Application list is applist.txt / flatpak apps are flatpaklist.txt
 wget "https://raw.githubusercontent.com/Kclamberth/linux-fresh-install/main/applist.txt" >> /var/log/kcl_apps.log 2>&1
 wget "https://raw.githubusercontent.com/Kclamberth/linux-fresh-install/main/flatpaklist.txt" >> /var/log/kcl_apps.log 2>&1
 
-echo0=$( cat $(find / -name applist.txt 2>/dev/null) | wc -l )
-d0=$( cat $(find / -name flatpaklist.txt 2>/dev/null) | wc -l )
-apptotal=$(expr $echo0 + $(cat $(find / -name flatpaklist.txt 2>/dev/null) | wc -l ) + 3)
+echo0=$( cat applist.txt | wc -l )
+d0=$( cat flatpaklist.txt | wc -l )
+apptotal=$(expr $echo0 + $(cat flatpaklist.txt | wc -l ) + 3)
 
 #Welcome message
-echo " " 
+echo " "
 echo "Welcome to KCL App installer!"
 echo " "
 sudo apt-get update >> /var/log/kcl_apps.log 2>&1 #updates system
@@ -21,7 +23,7 @@ declare -a d #array delta for flatpak
 for (( line=1; line<=$echo0; line++))
 do
     echo "Installing applications... ($line/$apptotal)"
-    app=$(cat $(find / -name applist.txt 2>/dev/null) | awk -F "=" '{print $2}' | sed -n "$line"p)
+    app=$(cat applist.txt | awk -F "=" '{print $2}' | sed -n "$line"p)
     sudo apt-get install -y -q $app >> /var/log/kcl_apps.log 2>&1 #appends stderror AND stdout to log
     e[$line]=$?
 done
@@ -35,7 +37,7 @@ then
     for ((line=1; line<=$d0; line++))
     do
 	echo "Installing applications... ($( expr $echo0 + $line + 1 )/$apptotal)"
- 	flatpak=$(cat $(find / -name flatpaklist.txt 2>/dev/null) | sed -n "$line"p)
+ 	flatpak=$(cat flatpaklist.txt | sed -n "$line"p)
         sudo flatpak install -y flathub $flatpak >> /var/log/kcl_apps.log 2>&1
         d[$line]=$?
     done
@@ -74,9 +76,9 @@ for((line=1; line<=$echo0; line++))
 do
     if [ ${e[$line]} -eq 0 ]
     then
-        echo "$(cat $(find / -name applist.txt 2>/dev/null) | sed -n "$line"p | awk -F "=" '{print $2}') successfully installed."
+        echo "$(cat applist.txt | sed -n "$line"p | awk -F "=" '{print $2}') successfully installed."
     else
-        echo "$(cat $(find / -name applist.txt 2>/dev/null) | sed -n "$line"p | awk -F "=" '{print $2}') FAILED to install."
+        echo "$(cat applist.txt | sed -n "$line"p | awk -F "=" '{print $2}') FAILED to install."
     fi
 done
 
@@ -87,7 +89,7 @@ for((line=1; line<=$d0; line++))
 do
     if [ ${d[$line]} -eq 0 ]
     then
-    	flatpakname=$(cat $(find / -name flatpaklist.txt 2>/dev/null) | sed -n "$line"p)
+    	flatpakname=$(cat flatpaklist.txt | sed -n "$line"p)
         echo "flatpak $flatpakname successfully installed."
     else
         echo "flatpak $flatpakname FAILED to install."
@@ -114,8 +116,8 @@ echo " "
 #Trash cleanup
 echo "Removing trash files..."
 rm $(find / -name "download?platform=linux&format=deb" 2>/dev/null)
-rm $(find / -name applist.txt 2>/dev/null)
-rm $(find / -name flatpaklist.txt 2>/dev/null)
+rm applist.txt
+rm flatpaklist.txt
 echo "Removing trash files... (DONE)"
 
 sleep 3
