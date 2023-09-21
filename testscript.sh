@@ -13,6 +13,7 @@ echo " "
 sudo apt-get update >> /var/log/kcl_apps.log 2>&1 #updates system
 
 declare -a e #array echo for apps
+declare -a d #array delta for flatpak
 
 #apt applications
 for (( line=1; line<=$echo0; line++))
@@ -29,8 +30,6 @@ then
     echo "Installing applications... ($(expr $echo0 + 1)/$apptotal)"
     sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo >> /var/log/kcl_apps.log 2>&1
     d0=$( cat $(find / -name flatpaklist.txt 2>/dev/null) | wc -l )
-
-    declare -a d #array delta for flatpak
 
     for ((line=1; line<=$d0; line++))
     do
@@ -87,9 +86,9 @@ for((line=1; line<=$d0; line++))
 do
     if [ ${d[$line]} -eq 0 ]
     then
-        echo "$(cat $(find / -name applist.txt 2>/dev/null) | sed -n "$line"p | awk -F "=" '{print $2}') successfully installed."
+        echo "$(cat $(find / -name flatpaklist.txt 2>/dev/null) | sed -n "$line"p | awk -F "=" '{print $2}') successfully installed."
     else
-        echo "$(cat $(find / -name applist.txt 2>/dev/null) | sed -n "$line"p | awk -F "=" '{print $2}') FAILED to install."
+        echo "$(cat $(find / -name flatpaklist.txt 2>/dev/null) | sed -n "$line"p | awk -F "=" '{print $2}') FAILED to install."
     fi
 done
 
