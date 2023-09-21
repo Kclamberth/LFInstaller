@@ -1,0 +1,13 @@
+app1=flatpak
+app2=tldr
+app3=lynis
+app4=nmap
+app5=wireshark
+app6=discord
+app7=macchanger
+app8=vim
+app9=htop
+app10=iftop
+app11=lutris
+app12=yt-dlp
+app13=testdisk
