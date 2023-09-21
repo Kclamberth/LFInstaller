@@ -15,21 +15,17 @@ Current list:
 
 6.vim
 
-7.Macchanger
+7.htop
 
-8.Vim
+8.iftop
 
-9.htop
+9.testdisk
 
-10.iftop
+10.discord
 
-11.testdisk
+11.yt-dlp
 
-12.discord
-
-13.yt-dlp
-
-14.Flatpak
+12.Flatpak
     
     a. Ultimaker Cura
 
