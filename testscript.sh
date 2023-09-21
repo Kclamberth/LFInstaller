@@ -14,6 +14,7 @@ app10=flatpak
 app11=iftop
 app12=lutris
 app13=yt-dlp
+app14=testdisk
 
 #Welcome message
 echo "Welcome to KCL App installer!"
@@ -51,14 +52,17 @@ e10=$?
 echo "Installing applications... (10/15)"
 sudo apt-get install -y -q $app11 >> kcl_pack_installer.log 2>&1
 e11=$?
+echo "Installing applications... (11/16)"
+sudo apt-get install -y -q $app11 >> kcl_pack_installer.log 2>&1
+e14=$?
 
 #flatpak applications
 if [ $e10 -eq 0 ] #only execute if flatpak successfully installs
 then
-    echo "Installing applications... (11/15)"
+    echo "Installing applications... (12/16)"
     sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo >> kcl_pack_installer.log 2>&1
     
-    echo "Installing applications... (12/15)"
+    echo "Installing applications... (13/16)"
     sudo flatpak install -y flathub com.ultimaker.cura >> kcl_pack_installer.log 2>&1
     ea=$?
     
@@ -68,21 +72,21 @@ then
         eb=$?
     fi
     
-    echo "Installing applications... (13/15)"
+    echo "Installing applications... (14/16)"
     sudo flatpak install -y flathub net.lutris.Lutris >> kcl_pack_installer.log 2>&1
     ec=$?
     
 fi
 
 #pull from discord site
-echo "Installing applications... (14/15)"
+echo "Installing applications... (15/16)"
 wget -q "https://discord.com/api/download?platform=linux&format=deb" >> kcl_pack_installer.log 2>&1
 sudo chmod +x 'download?platform=linux&format=deb' >> kcl_pack_installer.log 2>&1
 sudo dpkg -i ~/'download?platform=linux&format=deb' >> kcl_pack_installer.log 2>&1
 #e7 exit code moved to line 85
 
 #pull from yt-dlp github page
-echo "Installing applications... (15/15)"
+echo "Installing applications... (16/16)"
 sudo curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/bin/yt-dlp >> kcl_pack_installer.log 2>&1
 e13=$?
 sudo chmod a+rx /usr/bin/yt-dlp >> kcl_pack_installer.log 2>&1
@@ -197,6 +201,13 @@ then
     echo "$app13 successfully installed."
 else
     echo "$app13 FAILED to install."
+fi
+
+if [ $e14 -eq 0 ]
+then
+    echo "$app14 successfully installed."
+else
+    echo "$app14 FAILED to install."
 fi
 
 sleep 3
