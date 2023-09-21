@@ -13,25 +13,23 @@ Current list:
 
 5.Wireshark
 
-6.Steam
+6.Discord
 
-7.Discord
+7.Macchanger
 
-8.Macchanger
+8.Vim
 
-9.Vim
+9.Iftop
 
-10.Iftop
+10.Yt-dlp
 
-11.Yt-dlp
+11.Testdisk
 
-12.Testdisk
-
-13.Flatpak
+12.Flatpak
     
     a. Ultimaker Cura
 
-    b. Steam (IF not available in primary package manager)
+    b. Steam
 
     c. Lutris
 
