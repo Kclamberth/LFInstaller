@@ -1,0 +1,3 @@
+com.valvesoftware.Steam 
+com.ultimaker.cura
+net.lutris.Lutris
