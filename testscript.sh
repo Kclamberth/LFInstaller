@@ -87,7 +87,7 @@ for((line=1; line<=$d0; line++))
 do
     if [ ${d[$line]} -eq 0 ]
     then
-    	flatpakname=$(cat $(find / -name flatpaklist.txt 2>/dev/null) | sed -n "$line"p 
+    	flatpakname=$(cat $(find / -name flatpaklist.txt 2>/dev/null) | sed -n "$line"p)
         echo "flatpak $flatpakname successfully installed."
     else
         echo "flatpak $flatpakname FAILED to install."
