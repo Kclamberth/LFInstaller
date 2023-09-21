@@ -5,6 +5,7 @@ wget "https://raw.githubusercontent.com/Kclamberth/linux-fresh-install/main/appl
 wget "https://raw.githubusercontent.com/Kclamberth/linux-fresh-install/main/flatpaklist.txt" >> /var/log/kcl_apps.log 2>&1
 
 echo0=$( cat $(find / -name applist.txt 2>/dev/null) | wc -l )
+d0=$( cat $(find / -name flatpaklist.txt 2>/dev/null) | wc -l )
 apptotal=$(expr $echo0 + $(cat $(find / -name flatpaklist.txt 2>/dev/null) | wc -l ) + 3)
 
 #Welcome message
@@ -30,7 +31,6 @@ if [ ${e[1]} -eq 0 ] #only execute if flatpak successfully installs
 then
     echo "Installing applications... ($(expr $echo0 + 1)/$apptotal)"
     sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo >> /var/log/kcl_apps.log 2>&1
-    d0=$( cat $(find / -name flatpaklist.txt 2>/dev/null) | wc -l )
 
     for ((line=1; line<=$d0; line++))
     do
