@@ -17,7 +17,7 @@ for (( line=1; line<=$e0; line++))
 do
     echo "Installing applications... ($line/$apptotal)"
     app=$(cat $(find / -name applist.txt 2>/dev/null) | awk -F "=" '{print $2}' | sed -n "$line"p)
-    sudo apt-get install -y -q $app >> /var/log/kcl_apps.log 2>&1#appends stderror AND stdout to log
+    sudo apt-get install -y -q $app >> /var/log/kcl_apps.log 2>&1 #appends stderror AND stdout to log
     e"$line"=$?
 done
 
@@ -26,7 +26,7 @@ if [ $e1 -eq 0 ] #only execute if flatpak successfully installs
 then
     echo "Installing applications... ($(expr $e0 + 1)/$apptotal)"
     sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo >> /var/log/kcl_apps.log 2>&1
-    $d0=$( cat $(find / -name flatpaklist.txt 2>/dev/null) | wc -l )
+    d0=$( cat $(find / -name flatpaklist.txt 2>/dev/null) | wc -l )
 
     for ((line=1; line<=$d0; line++))
     do
@@ -40,7 +40,7 @@ fi
 #pull from discord site
 echo "Installing applications... ($(expr $apptotal - 1)/$apptotal)"
 wget -q "https://discord.com/api/download?platform=linux&format=deb" >> /var/log/kcl_apps.log 2>&1
-sudo chmod +x 'download?platform=linux&format=deb' >> /var/log/kcl_apps.log 2>&1
+sudo chmod +x "download?platform=linux&format=deb" >> /var/log/kcl_apps.log 2>&1
 sudo dpkg -i ~/'download?platform=linux&format=deb' >> /var/log/kcl_apps.log 2>&1
 #e7 exit code moved to line 85
 
@@ -70,9 +70,9 @@ for((line=1; line<=$e0; line++))
 do
     if [ $e"$line" -eq 0 ]
     then
-        echo "$(cat $(find / -name applist.txt 2>/dev/null) | sed -n "line"p | awk -F "=" '{print $2}') successfully installed."
+        echo "$(cat $(find / -name applist.txt 2>/dev/null) | sed -n "$line"p | awk -F "=" '{print $2}') successfully installed."
     else
-        echo "$(cat $(find / -name applist.txt 2>/dev/null) | sed -n "line"p | awk -F "=" '{print $2}') FAILED to install."
+        echo "$(cat $(find / -name applist.txt 2>/dev/null) | sed -n "$line"p | awk -F "=" '{print $2}') FAILED to install."
     fi
 done
 
@@ -83,9 +83,9 @@ for((line=1; line<=$d0; line++))
 do
     if [ $d"$line" -eq 0 ]
     then
-        echo "$(cat $(find / -name applist.txt 2>/dev/null) | sed -n "line"p | awk -F "=" '{print $2}') successfully installed."
+        echo "$(cat $(find / -name applist.txt 2>/dev/null) | sed -n "$line"p | awk -F "=" '{print $2}') successfully installed."
     else
-        echo "$(cat $(find / -name applist.txt 2>/dev/null) | sed -n "line"p | awk -F "=" '{print $2}') FAILED to install."
+        echo "$(cat $(find / -name applist.txt 2>/dev/null) | sed -n "$line"p | awk -F "=" '{print $2}') FAILED to install."
     fi
 done
 
@@ -108,7 +108,7 @@ echo " "
 
 #Trash cleanup
 echo "Removing trash files..."
-rm $(find / -name download?platform=linux&format=deb 2>/dev/null)
+rm $(find / -name "download?platform=linux&format=deb" 2>/dev/null)
 rm $(find / -name applist.txt 2>/dev/null)
 rm $(find / -name flatpaklist.txt 2>/dev/null)
 echo "Removing trash files... (DONE)"
