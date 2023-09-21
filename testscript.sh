@@ -88,9 +88,9 @@ do
     if [ ${d[$line]} -eq 0 ]
     then
     	flatpakname=$(cat $(find / -name flatpaklist.txt 2>/dev/null) | sed -n "$line"p 
-        echo "Flatpak $flatpakname successfully installed."
+        echo "flatpak $flatpakname successfully installed."
     else
-        echo "Flatpak $flatpakname FAILED to install."
+        echo "flatpak $flatpakname FAILED to install."
     fi
 done
 
