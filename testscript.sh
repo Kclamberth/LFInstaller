@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #Application list is applist.txt / flatpak apps are flatpaklist.txt
-wget "https://raw.githubusercontent.com/Kclamberth/main/applist.txt"
-wget "https://raw.githubusercontent.com/Kclamberth/main/flatpaklist.txt"
+wget "https://raw.githubusercontent.com/Kclamberth/linux-fresh-install/main/applist.txt"
+wget "https://raw.githubusercontent.com/Kclamberth/linux-fresh-install/main/flatpaklist.txt"
 
 e0=$( cat $(find / -name applist.txt 2>/dev/null) | wc -l )
 apptotal=$(expr $e0 + $(cat $(find / -name flatpaklist.txt 2>/dev/null) | wc -l ) + 2)
