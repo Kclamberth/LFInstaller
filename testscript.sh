@@ -89,6 +89,19 @@ do
     fi
 done
 
+if [ $ed1 -eq 0 ]
+then
+    echo "yt-dlp successfully installed."
+else
+    echo "yt-dlp FAILED to install."
+fi
+
+if [ $ed2 -eq 0 ]
+then
+    echo "discord successfully installed."
+else
+    echo "discord FAILED to install."
+fi
 
 sleep 3
 echo " "
