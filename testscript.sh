@@ -38,7 +38,7 @@ then
  	flatpak=$(cat $(find / -name flatpaklist.txt 2>/dev/null) | sed -n "$line"p)
         sudo flatpak install -y flathub $flatpak >> /var/log/kcl_apps.log 2>&1
         d[$line]=$?
-    fi
+    done
 fi
 
 #pull from discord site
