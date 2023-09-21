@@ -12,13 +12,15 @@ echo "Welcome to KCL App installer!"
 echo " "
 sudo apt-get update >> /var/log/kcl_apps.log 2>&1 #updates system
 
+declare -a e #array echo for apps
+
 #apt applications
 for (( line=1; line<=$e0; line++))
 do
     echo "Installing applications... ($line/$apptotal)"
     app=$(cat $(find / -name applist.txt 2>/dev/null) | awk -F "=" '{print $2}' | sed -n "$line"p)
     sudo apt-get install -y -q $app >> /var/log/kcl_apps.log 2>&1 #appends stderror AND stdout to log
-    e"$line"=$?
+    e[$line]=$?
 done
 
 #flatpak applications
@@ -28,12 +30,14 @@ then
     sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo >> /var/log/kcl_apps.log 2>&1
     d0=$( cat $(find / -name flatpaklist.txt 2>/dev/null) | wc -l )
 
+    declare -a d #array delta for flatpak
+
     for ((line=1; line<=$d0; line++))
     do
 	echo "Installing applications... ($( expr $e0 + $line + 1 )/$apptotal)"
  	flatpak=$(cat $(find / -name flatpaklist.txt 2>/dev/null) | sed -n "$line"p)
         sudo flatpak install -y flathub $flatpak >> /var/log/kcl_apps.log 2>&1
-        d"$line"=$?
+        d[$line]=$?
     fi
 fi
 
