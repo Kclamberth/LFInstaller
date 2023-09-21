@@ -16,7 +16,7 @@ sudo apt-get update >> /var/log/kcl_apps.log 2>&1 #updates system
 for (( line=1; line<=$e0; line++))
 do
     echo "Installing applications... ($line/$apptotal)"
-    app=$( $cat $(find / -name applist.txt 2>/dev/null) | awk -F "=" '{print $2}' | sed -n "$line"p >> /var/log/kcl_apps.log 2>&1 )
+    app=$(cat $(find / -name applist.txt 2>/dev/null) | awk -F "=" '{print $2}' | sed -n "$line"p) >> /var/log/kcl_apps.log 2>&1
     sudo apt-get install -y -q $app #appends stderror AND stdout to log
     e"$line"=$?
 done
@@ -31,7 +31,7 @@ then
     for ((line=1; line<=$d0; line++))
     do
 	echo "Installing applications... ($( expr $e0 + $line + 1 )/$apptotal)"
- 	flatpak=$(cat $(find / -name flatpaklist.txt 2>/dev/null) | sed -n "$line"p >> /var/log/kcl_apps.log 2>&1)
+ 	flatpak=$(cat $(find / -name flatpaklist.txt 2>/dev/null) | sed -n "$line"p) >> /var/log/kcl_apps.log 2>&1
         sudo flatpak install -y flathub $flatpak
         d"$line"=$?
     fi
