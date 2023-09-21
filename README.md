@@ -3,29 +3,33 @@ Useful apps for myself that are auto installed in a bash script. Will be updated
 
 Current list:
 
- 1.Htop
+ 1.tldr
 
-2.TLDR
+2.lynis
 
-3.Lynis
+3.nmap
 
-4.NMap
+4.wireshark
 
-5.Wireshark
+5.macchanger
 
-6.Discord
+6.vim
 
 7.Macchanger
 
 8.Vim
 
-9.Iftop
+9.htop
 
-10.Yt-dlp
+10.iftop
 
-11.Testdisk
+11.testdisk
 
-12.Flatpak
+12.discord
+
+13.yt-dlp
+
+14.Flatpak
     
     a. Ultimaker Cura
 
