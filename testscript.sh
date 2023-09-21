@@ -4,7 +4,7 @@
 wget "https://raw.githubusercontent.com/Kclamberth/linux-fresh-install/main/applist.txt" >> /var/log/kcl_apps.log 2>&1
 wget "https://raw.githubusercontent.com/Kclamberth/linux-fresh-install/main/flatpaklist.txt" >> /var/log/kcl_apps.log 2>&1
 
-e0=$( cat $(find / -name applist.txt 2>/dev/null) | wc -l )
+echo0=$( cat $(find / -name applist.txt 2>/dev/null) | wc -l )
 apptotal=$(expr $e0 + $(cat $(find / -name flatpaklist.txt 2>/dev/null) | wc -l ) + 2)
 
 #Welcome message
@@ -15,7 +15,7 @@ sudo apt-get update >> /var/log/kcl_apps.log 2>&1 #updates system
 declare -a e #array echo for apps
 
 #apt applications
-for (( line=1; line<=$e0; line++))
+for (( line=1; line<=$echo0; line++))
 do
     echo "Installing applications... ($line/$apptotal)"
     app=$(cat $(find / -name applist.txt 2>/dev/null) | awk -F "=" '{print $2}' | sed -n "$line"p)
@@ -24,9 +24,9 @@ do
 done
 
 #flatpak applications
-if [ $e1 -eq 0 ] #only execute if flatpak successfully installs
+if [ ${e[1]} -eq 0 ] #only execute if flatpak successfully installs
 then
-    echo "Installing applications... ($(expr $e0 + 1)/$apptotal)"
+    echo "Installing applications... ($(expr $echo0 + 1)/$apptotal)"
     sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo >> /var/log/kcl_apps.log 2>&1
     d0=$( cat $(find / -name flatpaklist.txt 2>/dev/null) | wc -l )
 
@@ -34,7 +34,7 @@ then
 
     for ((line=1; line<=$d0; line++))
     do
-	echo "Installing applications... ($( expr $e0 + $line + 1 )/$apptotal)"
+	echo "Installing applications... ($( expr $echo0 + $line + 1 )/$apptotal)"
  	flatpak=$(cat $(find / -name flatpaklist.txt 2>/dev/null) | sed -n "$line"p)
         sudo flatpak install -y flathub $flatpak >> /var/log/kcl_apps.log 2>&1
         d[$line]=$?
@@ -70,9 +70,9 @@ echo " "
 #exit codes & messages
 
 #apt error codes
-for((line=1; line<=$e0; line++))
+for((line=1; line<=$echo0; line++))
 do
-    if [ $e"$line" -eq 0 ]
+    if [ ${e[$line]} -eq 0 ]
     then
         echo "$(cat $(find / -name applist.txt 2>/dev/null) | sed -n "$line"p | awk -F "=" '{print $2}') successfully installed."
     else
@@ -85,7 +85,7 @@ done
 #flatpak error codes
 for((line=1; line<=$d0; line++))
 do
-    if [ $d"$line" -eq 0 ]
+    if [ ${d[$line]} -eq 0 ]
     then
         echo "$(cat $(find / -name applist.txt 2>/dev/null) | sed -n "$line"p | awk -F "=" '{print $2}') successfully installed."
     else
