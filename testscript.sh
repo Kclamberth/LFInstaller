@@ -5,7 +5,7 @@ wget "https://raw.githubusercontent.com/Kclamberth/linux-fresh-install/main/appl
 wget "https://raw.githubusercontent.com/Kclamberth/linux-fresh-install/main/flatpaklist.txt" >> /var/log/kcl_apps.log 2>&1
 
 echo0=$( cat $(find / -name applist.txt 2>/dev/null) | wc -l )
-apptotal=$(expr $e0 + $(cat $(find / -name flatpaklist.txt 2>/dev/null) | wc -l ) + 2)
+apptotal=$(expr $echo0 + $(cat $(find / -name flatpaklist.txt 2>/dev/null) | wc -l ) + 2)
 
 #Welcome message
 echo "Welcome to KCL App installer!"
