@@ -40,4 +40,4 @@ or by directly pulling from the website and auto installing it from there.
 
 This script also tells you whether the application successfully installed or not, and cleans up the trash files left behind from the install.
 
-A log file is created and contains info from the installation process of each application. Useful for debugging purposes.
+A log file is created and contains info from the installation process of each application. Useful for debugging purposes. Located in "/var/log/kcl_apps.log".
