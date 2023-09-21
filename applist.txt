@@ -8,5 +8,4 @@ app7=vim
 app8=htop
 app9=iftop
 app10=lutris
-app11=yt-dlp
-app12=testdisk
+app11=testdisk
