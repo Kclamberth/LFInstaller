@@ -7,5 +7,4 @@ app6=macchanger
 app7=vim
 app8=htop
 app9=iftop
-app10=lutris
-app11=testdisk
+app10=testdisk
