@@ -25,7 +25,9 @@ Current list:
 
 11.yt-dlp
 
-12.Flatpak
+12.gh
+
+13.Flatpak
     
     a. flathub repository
 
