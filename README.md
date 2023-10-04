@@ -27,7 +27,9 @@ Current list:
 
 12.gh
 
-13.Flatpak
+13.gradle
+
+14.Flatpak
     
     a. flathub repository
 
