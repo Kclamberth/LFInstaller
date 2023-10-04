@@ -9,3 +9,4 @@ app8=htop
 app9=iftop
 app10=testdisk
 app11=gh
+app12=gradle
