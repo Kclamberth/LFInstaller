@@ -8,3 +8,4 @@ app7=vim
 app8=htop
 app9=iftop
 app10=testdisk
+app11=gh
