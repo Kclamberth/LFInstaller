@@ -8,7 +8,7 @@ wget "https://raw.githubusercontent.com/Kclamberth/linux-fresh-install/main/flat
 
 echo0=$( cat applist.txt | wc -l )
 d0=$( cat flatpaklist.txt | wc -l )
-apptotal=$(expr $echo0 + $(cat flatpaklist.txt | wc -l ) + 3)
+apptotal=$(expr $echo0 + $(cat flatpaklist.txt | wc -l ) + 4)
 
 #Welcome message
 echo " "
@@ -42,13 +42,20 @@ then
         d[$line]=$?
     done
 fi
+#gradle pull from website
+echo "Installing applications... ($(expr $apptotal - 2)/$apptotal)"
+mkdir /opt/gradle
+wget "https://services.gradle.org/distributions/gradle-8.3-bin.zip" >> /var/log/kcl_apps.log 2>&1
+unzip -d /opt/gradle gradle-8.3-bin.zip >> /var/log/kcl_apps.log 2>&1
+sleep 2
+export PATH=$PATH:/opt/gradle/gradle-8.3/bin
+ed3=$?
 
 #pull from discord site
 echo "Installing applications... ($(expr $apptotal - 1)/$apptotal)"
 wget -q "https://discord.com/api/download?platform=linux&format=deb" >> /var/log/kcl_apps.log 2>&1
 sudo chmod +x "download?platform=linux&format=deb" >> /var/log/kcl_apps.log 2>&1
 sudo dpkg -i ~/'download?platform=linux&format=deb' >> /var/log/kcl_apps.log 2>&1
-#e7 exit code moved to line 85
 
 #pull from yt-dlp github page
 echo "Installing applications... ($apptotal/$apptotal)"
@@ -110,6 +117,13 @@ else
     echo "discord FAILED to install."
 fi
 
+if [ $ed3 -eq 0 ]
+then
+    echo "gradle successfully installed."
+else
+    echo "gradle FAILED to install."
+fi
+
 sleep 3
 echo " "
 
@@ -118,6 +132,7 @@ echo "Removing trash files..."
 rm $(find / -name "download?platform=linux&format=deb" 2>/dev/null)
 rm applist.txt
 rm flatpaklist.txt
+rm $(find / -name "gradle-8.3-bin.zip" 2>/dev/null)
 echo "Removing trash files... (DONE)"
 
 sleep 3
