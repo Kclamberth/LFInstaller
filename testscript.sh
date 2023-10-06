@@ -59,7 +59,7 @@ sudo dpkg -i ~/'download?platform=linux&format=deb' >> /var/log/kcl_apps.log 2>&
 
 #pull from yt-dlp github page
 echo "Installing applications... ($apptotal/$apptotal)"
-sudo curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/bin/yt-dlp >> /var/log/kcl_apps.log 2>&1
+sudo wget --directory-prefix=/usr/bin/yt-dlp https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp >> /var/log/kcl_apps.log 2>&1
 ed1=$?
 sudo chmod a+rx /usr/bin/yt-dlp >> /var/log/kcl_apps.log 2>&1
 sudo yt-dlp -U >> /var/log/kcl_apps.log 2>&1
