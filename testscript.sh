@@ -47,7 +47,7 @@ echo "Installing applications... ($(expr $apptotal - 2)/$apptotal)"
 mkdir /opt/gradle
 wget "https://services.gradle.org/distributions/gradle-8.3-bin.zip" >> /var/log/kcl_apps.log 2>&1
 unzip -d /opt/gradle gradle-8.3-bin.zip >> /var/log/kcl_apps.log 2>&1
-sleep 2
+sleep 5
 export PATH=$PATH:/opt/gradle/gradle-8.3/bin
 ed3=$?
 
@@ -58,8 +58,8 @@ sudo dpkg -i ~/'download?platform=linux&format=deb' >> /var/log/kcl_apps.log 2>&
 
 #pull from yt-dlp github page
 echo "Installing applications... ($apptotal/$apptotal)"
-sudo wget --directory-prefix=/usr/bin/yt-dlp https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp >> /var/log/kcl_apps.log 2>&1
-sudo chmod a+rx /usr/bin/yt-dlp >> /var/log/kcl_apps.log 2>&1
+sudo wget https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -O /usr/local/bin/yt-dlp >> /var/log/kcl_apps.log 2>&1
+sudo chmod a+rx /usr/local/bin/yt-dlp >> /var/log/kcl_apps.log 2>&1
 sudo yt-dlp -U >> /var/log/kcl_apps.log 2>&1
 ed1=$?
 
