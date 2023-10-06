@@ -21,11 +21,11 @@ Current list:
 
 9.testdisk
 
-10.discord
+10.gh
 
 11.yt-dlp
 
-12.gh
+12.discord
 
 13.gradle
 
