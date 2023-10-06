@@ -24,7 +24,7 @@ for (( line=1; line<=$echo0; line++))
 do
     echo "Installing applications... ($line/$apptotal)"
     app=$(cat applist.txt | awk -F "=" '{print $2}' | sed -n "$line"p)
-    sudo apt-get install -y $app >> /var/log/kcl_apps.log 2>&1 #appends stderror AND stdout to log
+    sudo DEBIAN_FRONTEND=noninteractive apt-get install -y $app >> /var/log/kcl_apps.log 2>&1 #appends stderror AND stdout to log
     e[$line]=$?
 done
 
