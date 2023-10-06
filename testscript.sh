@@ -53,7 +53,7 @@ ed3=$?
 
 #pull from discord site
 echo "Installing applications... ($(expr $apptotal - 1)/$apptotal)"
-wget -q "https://discord.com/api/download?platform=linux&format=deb" >> /var/log/kcl_apps.log 2>&1
+wget "https://discord.com/api/download?platform=linux&format=deb" >> /var/log/kcl_apps.log 2>&1
 sudo dpkg -i ~/'download?platform=linux&format=deb' >> /var/log/kcl_apps.log 2>&1
 
 #pull from yt-dlp github page
