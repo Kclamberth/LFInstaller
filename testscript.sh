@@ -42,7 +42,7 @@ then
         d[$line]=$?
     done
 fi
-#gradle pull from website
+#pull from gradle website
 echo "Installing applications... ($(expr $apptotal - 2)/$apptotal)"
 mkdir /opt/gradle
 wget "https://services.gradle.org/distributions/gradle-8.3-bin.zip" >> /var/log/kcl_apps.log 2>&1
@@ -102,6 +102,7 @@ do
     fi
 done
 
+#direct pull error codes
 if [ $ed1 -eq 0 ]
 then
     echo "yt-dlp successfully installed."
