@@ -29,7 +29,7 @@ do
 done
 
 #vim basic ide config
-wget "https://raw.githubusercontent.com/Kclamberth/linux-fresh-install/main/vimrc"
+wget "https://raw.githubusercontent.com/Kclamberth/linux-fresh-install/main/vimrc" >> /var/log/kcl_apps.log 2>&1 
 mv vimrc ~/.vimrc
 
 #flatpak applications
