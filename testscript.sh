@@ -11,9 +11,9 @@ d0=$( cat flatpaklist.txt | wc -l )
 apptotal=$(expr $echo0 + $(cat flatpaklist.txt | wc -l ) + 4)
 
 #Welcome message
-echo " "
+echo "\n"
 echo "Welcome to KCL App installer!"
-echo " "
+echo "\n"
 sudo apt-get update >> /var/log/kcl_apps.log 2>&1 #updates system
 
 declare -a e #array echo for apps
@@ -68,16 +68,16 @@ sudo yt-dlp -U >> /var/log/kcl_apps.log 2>&1
 ed1=$?
 
 echo "Installing applications... (DONE)"
-sleep 3
-echo " "
+
+echo "\n"
 
 #fix dependencies
 echo "Fixing dependencies..."
 sudo apt-get install -f -y >> /var/log/kcl_apps.log  2>&1
 ed2=$? #required for discord to be successful
 echo "Fixing dependencies... (DONE)"
-sleep 3
-echo " "
+
+echo "\n"
 
 #exit codes & messages
 
@@ -91,8 +91,6 @@ do
         echo "$(cat applist.txt | sed -n "$line"p | awk -F "=" '{print $2}') FAILED to install."
     fi
 done
-
-
 
 #flatpak error codes
 for((line=1; line<=$d0; line++))
@@ -128,8 +126,7 @@ else
     echo "gradle FAILED to install."
 fi
 
-sleep 3
-echo " "
+echo "\n"
 
 #Trash cleanup
 echo "Removing trash files..."
@@ -139,8 +136,7 @@ rm flatpaklist.txt
 rm $(find / -name "gradle-8.3-bin.zip" 2>/dev/null)
 echo "Removing trash files... (DONE)"
 
-sleep 3
-echo " "
+echo "\n"
 
 echo "Finished installing applications."
 
