@@ -30,7 +30,7 @@ done
 
 #vim basic ide config
 wget "https://raw.githubusercontent.com/Kclamberth/linux-fresh-install/main/vimrc"
-mv vimrc .vimrc
+mv vimrc ~/.vimrc
 
 #flatpak applications
 if [ ${e[1]} -eq 0 ] #only execute if flatpak successfully installs
