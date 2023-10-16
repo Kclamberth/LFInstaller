@@ -10,3 +10,4 @@ app9=iftop
 app10=testdisk
 app11=gh
 app12=xdotool
+app13=obs-studio
