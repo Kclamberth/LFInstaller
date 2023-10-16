@@ -25,13 +25,17 @@ Current list:
 
 11.xdotool
 
-12.yt-dlp
+12.obs-studio
 
-13.discord
+13.ffmpeg
 
-14.gradle
+13.yt-dlp
 
-15.Flatpak
+14.discord
+
+15.gradle
+
+16.Flatpak
     
     a. flathub repository
 
