@@ -23,13 +23,15 @@ Current list:
 
 10.gh
 
-11.yt-dlp
+11.xdotool
 
-12.discord
+12.yt-dlp
 
-13.gradle
+13.discord
 
-14.Flatpak
+14.gradle
+
+15.Flatpak
     
     a. flathub repository
 
