@@ -30,7 +30,10 @@ done
 
 #vim basic ide config
 wget "https://raw.githubusercontent.com/Kclamberth/linux-fresh-install/main/vimrc" >> /var/log/kcl_apps.log 2>&1 
-mv vimrc ~/.vimrc
+mv $(find ~ -name vimrc) ~/.vimrc
+
+wget "https://raw.githubusercontent.com/Kclamberth/linux-fresh-install/main/tmux.txt" >> /var/log/kcl_apps.log 2>&1
+mv $(find ~ -name tmux.txt) ~/.tmux.conf
 
 #flatpak applications
 if [ ${e[1]} -eq 0 ] #only execute if flatpak successfully installs
