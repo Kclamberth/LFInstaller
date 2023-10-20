@@ -33,7 +33,7 @@ wget "https://raw.githubusercontent.com/Kclamberth/linux-fresh-install/main/vimr
 mv $(find ~ -name vimrc) ~/.vimrc
 
 #tmux & plugins 
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm >> /var/log/kcl_apps.log 2>&1
+git clone "https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm" >> /var/log/kcl_apps.log 2>&1
 wget "https://raw.githubusercontent.com/Kclamberth/linux-fresh-install/main/tmux.txt" >> /var/log/kcl_apps.log 2>&1
 mv $(find ~ -name tmux.txt) ~/.tmux.conf
 
