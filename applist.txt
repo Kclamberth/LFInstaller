@@ -12,3 +12,4 @@ app11=gh
 app12=xdotool
 app13=obs-studio
 app14=ffmpeg
+app15=tmux
