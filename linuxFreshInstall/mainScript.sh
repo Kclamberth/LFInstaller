@@ -51,7 +51,7 @@ then
     done
 fi
 #pull from gradle website
-echo "Installing applications... ($(expr $apptotal - 2)/$apptotal)"
+echo -ne "\rInstalling applications... ($(expr $apptotal - 2)/$apptotal)"
 mkdir /opt/gradle
 wget "https://services.gradle.org/distributions/gradle-8.3-bin.zip" >> /var/log/kcl_apps.log 2>&1
 unzip -d /opt/gradle gradle-8.3-bin.zip >> /var/log/kcl_apps.log 2>&1
@@ -63,13 +63,13 @@ source ~/.bashrc
 ed3=$?
 
 #pull from discord site
-echo "Installing applications... ($(expr $apptotal - 1)/$apptotal)"
+echo -ne "\rInstalling applications... ($(expr $apptotal - 1)/$apptotal)"
 wget "https://discord.com/api/download?platform=linux&format=deb" >> /var/log/kcl_apps.log 2>&1
 sudo chmod +x ~/'download?platform=linux&format=deb' >> /var/log/kcl_apps.log 2>&1
 sudo dpkg -i ~/'download?platform=linux&format=deb' >> /var/log/kcl_apps.log 2>&1
 
 #pull from yt-dlp github page
-echo "Installing applications... ($apptotal/$apptotal)"
+echo -ne "\rInstalling applications... ($apptotal/$apptotal)"
 sudo wget https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -O /usr/local/bin/yt-dlp >> /var/log/kcl_apps.log 2>&1
 sudo chmod a+rx /usr/local/bin/yt-dlp >> /var/log/kcl_apps.log 2>&1
 sudo yt-dlp -U >> /var/log/kcl_apps.log 2>&1
