@@ -1,4 +1,4 @@
-# linux-fresh-install
+# LFInstaller "Linux Fresh, Installer"
 Useful apps for myself that are auto installed in a bash script. Will be updated in the future. 
 
 Current list:
