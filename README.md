@@ -13,7 +13,7 @@ Current list:
 
 5.macchanger
 
-6.neovim
+6.vim
 
 7.htop
 
