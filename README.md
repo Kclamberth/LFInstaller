@@ -1,5 +1,5 @@
 # LFInstaller "Linux Fresh, Installer"
-Useful apps for myself that are auto installed in a bash script. Will be updated in the future. 
+Useful apps for myself that are auto installed in a bash script. Will be continuously updated in the future. Currently only works on system with the apt package manager (Debian based).
 
 Current list:
 
@@ -55,3 +55,12 @@ or by directly pulling from the website and auto installing it from there.
 This script also tells you whether the application successfully installed or not, and cleans up the trash files left behind from the install.
 
 A log file is created and contains info from the installation process of each application. Useful for debugging purposes. Located in "/var/log/kcl_apps.log".
+
+#Installation:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1.) git clone "https://github.com/Kclamberth/LFInstaller"
+
+2.) Run script in /linuxFreshInstall with: "sudo bash mainScript.sh"
+
+3.) Grab a coffee.
+
