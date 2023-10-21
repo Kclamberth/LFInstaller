@@ -1,5 +1,5 @@
 # LFInstaller "Linux Fresh, Installer"
-Useful apps for myself that are auto installed in a bash script. Will be continuously updated in the future. Currently only works on system with the apt package manager (Debian based).
+Useful apps for myself that are auto installed in a bash script. Will be continuously updated in the future. Currently only works on systems with the apt package manager (Debian based).
 
 Current list:
 
