@@ -13,7 +13,7 @@ Current list:
 
 5.macchanger
 
-6.vim
+6.neovim
 
 7.htop
 
@@ -31,13 +31,15 @@ Current list:
 
 14.tmux
 
-15.yt-dlp
+15.tree
 
-16.discord
+16.yt-dlp
 
-17.gradle
+17.discord
 
-18.Flatpak
+18.gradle
+
+19.Flatpak
     
     a. flathub repository
 
