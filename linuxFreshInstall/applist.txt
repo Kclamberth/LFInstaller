@@ -1,0 +1,16 @@
+app1=flatpak
+app2=tldr
+app3=lynis
+app4=nmap
+app5=wireshark
+app6=macchanger
+app7=vim
+app8=htop
+app9=iftop
+app10=testdisk
+app11=gh
+app12=xdotool
+app13=obs-studio
+app14=ffmpeg
+app15=tmux
+app16=tree
