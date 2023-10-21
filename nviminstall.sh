@@ -16,5 +16,6 @@ wget "https://raw.githubusercontent.com/nvim-lua/kickstart.nvim/master/init.lua"
 mkdir ~/.config/nvim/
 mv init.lua ~/.config/nvim/init.lua
 
-sudo apt install -y g++
-sudo apt install -y tree
+sudo apt-get install -y g++
+sudo apt-get install -y tree
+sudo apt-get install -y python3.10-venv
