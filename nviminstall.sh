@@ -13,7 +13,8 @@ sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
 nvim
 
 wget "https://raw.githubusercontent.com/nvim-lua/kickstart.nvim/master/init.lua"
-mv init.lua ~/.config/nvim
+mkdir ~/.config/nvim/
+mv init.lua ~/.config/nvim/init.lua
 
 sudo apt install -y g++
 sudo apt install -y tree
