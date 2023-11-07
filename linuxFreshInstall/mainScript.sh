@@ -3,6 +3,8 @@
 #cd $(find ~ -name mainScript.sh 2>/dev/null | xargs dirname 2>/dev/null)
 cd "$(dirname "$0")"
 #Application list is applist.txt / flatpak apps are flatpaklist.txt
+wget "https://raw.githubusercontent.com/Kclamberth/LFInstaller/main/linuxFreshInstall/applist.txt"
+wget "https://raw.githubusercontent.com/Kclamberth/LFInstaller/main/linuxFreshInstall/flatpaklist.txt"
 
 echo0=$( cat applist.txt | wc -l )
 d0=$( cat flatpaklist.txt | wc -l )
@@ -148,6 +150,9 @@ echo "Finished installing apt & flatpack applications."
 
 echo " "
 read -p "Would you like to install neovim as well?(y,n): " user_input
+
+wget "https://github.com/Kclamberth/LFInstaller/blob/main/linuxFreshInstall/install_files/nviminstall.sh"
+chmod +x nviminstall.sh
 
 if [[ $user_input == "y" ]] || [[ $user_input =="Y" ]]; then
     echo "Stand by for neovim installation..."
