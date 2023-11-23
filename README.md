@@ -41,9 +41,13 @@ Current list:
 
 18.gradle
 
-19.neovim (OPTIONAL) 
+19.jq
 
-20.Flatpak
+20.npm
+
+21.neovim (OPTIONAL) 
+
+22.Flatpak
     
     a. flathub repository
 
