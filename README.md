@@ -45,9 +45,11 @@ Current list:
 
 20.npm
 
-21.neovim (OPTIONAL) 
+21. mpv
 
-22.Flatpak
+22.neovim (OPTIONAL) 
+
+23.Flatpak
     
     a. flathub repository
 
