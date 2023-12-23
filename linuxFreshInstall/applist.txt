@@ -16,3 +16,4 @@ app15=tmux
 app16=tree
 app17=jq
 app18=npm
+app19=mpv
