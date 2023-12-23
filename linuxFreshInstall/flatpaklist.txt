@@ -1,3 +1,4 @@
 com.valvesoftware.Steam 
 com.ultimaker.cura
 net.lutris.Lutris
+cc.arduino.IDE2
