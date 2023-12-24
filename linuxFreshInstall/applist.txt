@@ -19,3 +19,4 @@ app18=npm
 app19=mpv
 app20=fzf
 app21=socat
+app22=ytfzf
