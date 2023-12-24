@@ -45,9 +45,9 @@ Current list:
 
 20.npm
 
-21. mpv
+21.mpv
 
-22. fzf
+22.fzf
 
 23.neovim (OPTIONAL) 
 
