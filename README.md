@@ -51,6 +51,8 @@ Current list:
 
 23.socat
 
+24.ytfzf
+
 23.neovim (OPTIONAL) 
 
 24.Flatpak
