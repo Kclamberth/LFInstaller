@@ -12,7 +12,7 @@ sudo mv squashfs-root /
 sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
 nvim
 
-wget "https://raw.githubusercontent.com/nvim-lua/kickstart.nvim/master/init.lua"
+wget "https://raw.githubusercontent.com/Kclamberth/LFInstaller/main/linuxFreshInstall/backup_files/init.lua"
 mkdir ~/.config/nvim/
 mv init.lua ~/.config/nvim/init.lua
 
